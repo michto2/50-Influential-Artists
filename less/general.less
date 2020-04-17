@@ -19,7 +19,13 @@
   }
   
   h1 {
-    font-size: 6rem;
+    font-size: 5rem;
+    color: white;
+    font-weight: bold;
+
+    @media @mobile {
+      font-size: 3rem;
+    }
     
   }
   
@@ -38,7 +44,11 @@
     line-height: 1.5;
     font-size: 1.3rem;
     text-align: center;
-    padding: 2% 15%;
+    padding: 2% 10%;
+
+    @media @mobile {
+      padding: 0;
+    }
   }
   
   img {

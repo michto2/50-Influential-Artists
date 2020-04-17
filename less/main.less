@@ -1,44 +1,54 @@
 header {
-    height: 30vh;
+    height: 20vh;
+
+    @media @mobile {
+        height: 15vh;
+    }
 }
 
-.title-container {
-    
 .homeImg {
     background-image: url(/Users/michelle/Desktop/lambda-assignments/50-Influential-Artists/assets/home.png);
     height: 90vh;
     width: 100%;
-   
+    opacity: 8.0;
     .flex();
-    
+
+    @media @mobile {
+        height: 60vh;
+        width: 100%;
+    }
+
     .text {
         text-align: center;
 
     .btn {
         .contButton {
                 .custom-btn();
-            }
-        }
-    }
+        }// closes contButton
+    } //closes btn
 
     } // closes text
-   
-    img {
-        width: 90%;
-        
-    }//closes img
+
 }// closes homeImg
 
 
 .artists-container {
-  display: flex;
-  justify-content: flex-start;
-    
+    display: flex;
+    justify-content: flex-start;
     padding-top: 5%;
+
+    @media @mobile {
+        .flex(column, center, center);
+        padding-bottom: 20%;
+    }
  
     .artist {
     .flex(column, baseline, center);
     width: 50%;
+
+    @media @mobile {
+        width: 100%;
+    }
 
     a {
         text-decoration: none;
@@ -50,6 +60,16 @@ header {
         justify-content: center;
         align-items: center;
         border-radius: 7px;
+
+        @media @mobile {
+            padding-top: 10%;
+            width: 70%;
+        }
+
+        &:hover {
+            opacity: 0.8;
+            }
+            
       } //closes img
     }// closes artist
 }//closes artist-container
