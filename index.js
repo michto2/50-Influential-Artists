@@ -1,3 +1,5 @@
+<script src="index.js"></script>
+
 const artists = [
     {
       "id": 0,
