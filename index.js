@@ -208,14 +208,16 @@ const artists = [
 (1) Name of the first artist in the array
 (2) Bio of the third artist in the array */
 
-console.log(artist[0]);
-console.log(artis[3].bio);
+console.log(artists[0]);
+console.log(artists[3].bio);
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. 
 Use an array method to fix this issue and console.log() to check your work. */
 
+artists[8].name = 'Vincent Van Gogh';
 
+console.log(artists[8]);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -225,12 +227,12 @@ Use an array method to fix this issue and console.log() to check your work. */
  * For example, if getArtistByIndex is invoked with the inventory and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(id, name) {
-    const numArtist = id[name];
-    return 'The artist at index ${id} is ${name}'
+function getArtistByIndex(artists, index) {
+    const numArtist = artists[index];
+    return `The artist at index ${numArtist.id} is ${numArtist.name}`
   }
 
-  console.log(getArtistByIndex(id,4));
+  console.log(getArtistByIndex(artists,2));
   
   /**
 
@@ -244,31 +246,40 @@ function getArtistByIndex(id, name) {
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset.
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+function removeArtist(artists,index) {
+    artists.splice(index,index)
+    return artists;
   }
+
+  console.log(removeArtist(artists,4));
   
   /**
+  
 
+/* Task 5: Create a function called get20s() that takes data as an argument and returns an array 
+with names of artists who were born the 20th century ( 1900-1999) */
 
-/* Task 5: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born the 20th century ( 1900-1999) */
+function get20s(artists,minYears,maxYears){
 
-function get20s(/* Code here */){
-
-    /* Code here */
-
+const result = artists.filter(artist => artist.years > minYears && artist.years < maxYears)
+return result;
   }
 
-/* Task 6: Create a function called lotsOfArt() that takes artists as an argument and returns an array with names of artists who painted more than 100 paintings */
+  console.log(get20s(artists,1900,1999))
 
-function lotsOfArt(/* Code here */){
+/* Task 6: Create a function called lotsOfArt() that takes artists as an argument and returns an array 
+with names of artists who painted more than 100 paintings */
 
-    /* Code here */
+function lotsOfArt(artists){
 
+const result = artists.filter(artist => artist.paintings > 100)
+   return result;
   }
 
+  console.log(lotsOfArt(artists))
 
-/* Task 7: Create a function called `addArtist` that can accept an array of information and add it to the artists array. Then, Add a 21st artist to the array (you) with custom information! 👩‍🎨👨‍🎨
+/* Task 7: Create a function called `addArtist` that can accept an array of information and 
+add it to the artists array. Then, Add a 21st artist to the array (you) with custom information! 👩‍🎨👨‍🎨
 
 id: 21
 name: Your Name Here, 
@@ -277,22 +288,26 @@ genre: Web Design,
 nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) "*/
 
-function addArtist(/* Code here */){
+const newArtist = {id: 21, name:'Michelle', years: '1988 - 2020', genre: 'web', nationality: 'British', bio:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium lectus quam id leo in vitae turpis.'}
 
-    /* Code here */
+function addArtist(artists,newArtist){
+    artists.push(newArtist);
+    return artists;
+ }
 
+ console.log(addArtist(artists,newArtist))
+ 
+
+
+/* Task 8: Create a function called `checkArtist` that accepts a string (name of an artist) and 
+checks if that artist is in the dataset. */
+
+function checkArtist(artists,name){
+    const data = artists.find(artist => artist.name === name)
+    return data;
   }
 
-
-/* Task 8: Create a function called `checkArtist` that accepts a string (name of an artist) and checks if that artist is in the dataset. */
-
-function checkArtist(/* Code here */){
-
-    /* Code here */
-
-  }
-
-
+console.log(checkArtist(artists, 'Vincent Van Gogh'))
 
 
 
